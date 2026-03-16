@@ -1,0 +1,1 @@
+html{height:100vh;height:calc(var(--vh,1vh) * 100)}body{overscroll-behavior-y:none;text-size-adjust:100%}button,a{touch-action:manipulation}
