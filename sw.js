@@ -1,5 +1,10 @@
 // Squish Service Worker
 // Enables offline functionality by caching static assets
+//
+// Note: This file is served directly from /static and cannot use ES module
+// imports from @neutron/utils/service-worker. The cache strategies below
+// follow the same patterns as the shared helpers; smash and squash import
+// them directly from @neutron/utils/service-worker.
 
 const CACHE_VERSION = '2';
 const CACHE_NAME = `squish-v${CACHE_VERSION}`;
