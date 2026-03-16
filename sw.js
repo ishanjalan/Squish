@@ -1,7 +1,8 @@
 // Squish Service Worker
 // Enables offline functionality by caching static assets
 
-const CACHE_NAME = 'squish-v1';
+const CACHE_VERSION = '2';
+const CACHE_NAME = `squish-v${CACHE_VERSION}`;
 const BASE_PATH = '/Squish';
 
 // Assets to cache on install
