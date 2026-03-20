@@ -10,12 +10,12 @@
 		<meta name="theme-color" content="#0a0e1a" />
 
 		<!-- PWA -->
-		<link rel="manifest" href="/Squish/manifest.json" />
+		<link rel="manifest" href="./manifest.json" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="apple-mobile-web-app-title" content="Squish" />
-		<link rel="apple-touch-icon" href="/Squish/icon-192.svg" />
-		<link rel="icon" type="image/svg+xml" href="/Squish/icon-192.svg" />
+		<link rel="apple-touch-icon" href="./icon-192.svg" />
+		<link rel="icon" type="image/svg+xml" href="./icon-192.svg" />
 
 		<!-- Optimized Font Loading -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,13 +113,13 @@
 			}
 		</style>
 
-		<link href="/Squish/_app/immutable/entry/start.Bue0ogWi.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/AnG1dvy2.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/Cs0apFyD.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/CibALFW0.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/entry/app.Dhmb6Pia.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/D_w3HNwU.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/D1hYfEew.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/start.Bue0ogWi.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/AnG1dvy2.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Cs0apFyD.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CibALFW0.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.Dhmb6Pia.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D_w3HNwU.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D1hYfEew.js" rel="modulepreload">
 		
 	</head>
 	<body data-sveltekit-preload-data="hover">
@@ -149,15 +149,15 @@
 			<script>
 				{
 					__sveltekit_1fq65lc = {
-						base: "/Squish",
+						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/Squish"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/Squish/_app/immutable/entry/start.Bue0ogWi.js"),
-						import("/Squish/_app/immutable/entry/app.Dhmb6Pia.js")
+						import("./_app/immutable/entry/start.Bue0ogWi.js"),
+						import("./_app/immutable/entry/app.Dhmb6Pia.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
@@ -191,7 +191,7 @@
 			if ('serviceWorker' in navigator) {
 				window.addEventListener('load', () => {
 					navigator.serviceWorker
-						.register('/Squish/sw.js', { scope: '/Squish/' })
+						.register('./sw.js', { scope: './' })
 						.then((registration) => {
 							console.log('SW registered:', registration.scope);
 							registration.addEventListener('updatefound', () => {
