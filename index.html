@@ -1,6 +1,16 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 	<head>
+		<script>
+			(function () {
+				try {
+					var t =
+						localStorage.getItem('neutron-theme') ||
+						(window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+					document.documentElement.setAttribute('data-theme', t);
+				} catch (e) {}
+			})();
+		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta
@@ -43,6 +53,9 @@
 			/* Prevent FOUC */
 			html {
 				background: #0a0e1a;
+			}
+			html[data-theme='light'] {
+				background: #fafafa;
 			}
 
 			/* Loader styles */
@@ -113,11 +126,11 @@
 			}
 		</style>
 
-		<link href="/Squish/_app/immutable/entry/start.CoXN7IUU.js" rel="modulepreload">
+		<link href="/Squish/_app/immutable/entry/start.klsv9Lc5.js" rel="modulepreload">
 		<link href="/Squish/_app/immutable/chunks/B6O14NtH.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/1_6NkSNK.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/entry/app.B4SpAe3l.js" rel="modulepreload">
-		<link href="/Squish/_app/immutable/chunks/CHrkjmFj.js" rel="modulepreload">
+		<link href="/Squish/_app/immutable/chunks/DpIKs2f-.js" rel="modulepreload">
+		<link href="/Squish/_app/immutable/entry/app.D32hTNXp.js" rel="modulepreload">
+		<link href="/Squish/_app/immutable/chunks/BjNbRjhf.js" rel="modulepreload">
 		<link href="/Squish/_app/immutable/chunks/DEDqjojZ.js" rel="modulepreload">
 		
 	</head>
@@ -147,7 +160,7 @@
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1i1ra42 = {
+					__sveltekit_1d7i8t2 = {
 						base: "/Squish",
 						assets: "/Squish"
 					};
@@ -155,8 +168,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/Squish/_app/immutable/entry/start.CoXN7IUU.js"),
-						import("/Squish/_app/immutable/entry/app.B4SpAe3l.js")
+						import("/Squish/_app/immutable/entry/start.klsv9Lc5.js"),
+						import("/Squish/_app/immutable/entry/app.D32hTNXp.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
