@@ -11,6 +11,38 @@
 				} catch (e) {}
 			})();
 		</script>
+		<script>
+			// After a deploy, a cached page can point at JS files that no longer exist (GitHub Pages
+			// caches HTML for ~10 minutes). Reload once to pick up the new build; the timestamp guard
+			// stops it from ever looping.
+			(function () {
+				var KEY = 'neutron-stale-reload';
+				function reload() {
+					try {
+						if (Date.now() - Number(sessionStorage.getItem(KEY) || 0) < 60000) return;
+						sessionStorage.setItem(KEY, String(Date.now()));
+					} catch (e) {}
+					location.reload();
+				}
+				window.addEventListener('vite:preloadError', function (e) {
+					e.preventDefault();
+					reload();
+				});
+				// A <script type="module"> that 404s fires `error` on the element, so listen in capture.
+				window.addEventListener(
+					'error',
+					function (e) {
+						var t = e.target;
+						if (t && t.tagName === 'SCRIPT' && t.type === 'module') reload();
+					},
+					true
+				);
+				window.addEventListener('unhandledrejection', function (e) {
+					var m = String((e.reason && e.reason.message) || e.reason || '');
+					if (/dynamically imported module|Importing a module script failed/i.test(m)) reload();
+				});
+			})();
+		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta
@@ -187,16 +219,16 @@
 			
 			<script>
 				{
-					__sveltekit_iea6yj = {
+					__sveltekit_1qr4uzg = {
 						base: new URL(".", location).pathname.slice(0, -1),
-						version: "1792208795147",
+						version: "1792210736511",
 						assets: "/Squish"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("./_app/immutable/entry/start.C1YE1XTX.js").then(async (kit) => {
-						kit.init(__sveltekit_iea6yj);
+						kit.init(__sveltekit_1qr4uzg);
 						const app = await import("./_app/immutable/entry/app.Bultgf-d.js");
 						kit.start(app, element, {
 							node_ids: [0, 2],
